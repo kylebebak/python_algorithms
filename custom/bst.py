@@ -77,14 +77,6 @@ class BST:
 
 
 
-def basic_dfs(node):
-    if node is not None:
-        yield node.value
-        for node_value in basic_dfs(node.left):
-            yield node_value
-        for node_value in basic_dfs(node.right):
-            yield node_value
-
 
 if __name__ == '__main__':
     import bst
