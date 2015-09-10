@@ -6,34 +6,34 @@ class BinaryHeap(object):
         self.compare = self.less if mx else self.more
 
     def less(self, a, b):
-        return a < b
+        return self.L[a] < self.L[b]
 
     def more(self, a, b):
-        return a > b
+        return self.L[a] > self.L[b]
 
     def exch(self, i, j):
-        temp = self.L[i]
-        self.L[i] = self.L[j]
-        self.L[j] = temp
+        self.L[i], self.L[j] = self.L[j], self.L[i]
 
     def swim(self, k):
-        while k > 1 and self.compare(self.L[k//2], self.L[k]):
+        while k > 1 and self.compare(k//2, k):
             self.exch(k//2, k)
             k = k//2
 
     def sink(self, k):
         while 2*k <= self.N:
             j = 2*k
-            if j < self.N and self.compare(self.L[j], self.L[j+1]):
+            if j < self.N and self.compare(j, j+1):
                 j += 1
-            if not self.compare(self.L[k], self.L[j]):
+            if not self.compare(k, j):
                 break
             self.exch(k, j)
             k = j
 
 
 class PriorityQueue(BinaryHeap):
-    """docstring for PriorityQueue"""
+    """This priority queue can handle any elements that implement
+    rich comparison. It does not support keys with associated values,
+    but rather only values."""
     def __init__(self, mx=True):
         super(PriorityQueue, self).__init__(mx)
 
@@ -58,6 +58,7 @@ class PriorityQueue(BinaryHeap):
     def sorted_order(self):
         while self.N > 0:
             yield self.remove_top()
+
 
 
 if __name__ == '__main__':

@@ -1,3 +1,9 @@
+"""
+This implementation depends on a heap where each element
+has a priority, and the priority of any element can be
+changed so that the element repositions itself in the heap.
+It therefore requires a heap-dictionary.
+"""
 # from custom.heapdict import heapdict
 from .heapdict import heapdict
 

@@ -19,11 +19,7 @@ def bucketsort(d, n):
     for b in range(n):
         buckets.append(list())
 
-    if isinstance(d[0], tuple):
-        gen = (key for key in d)
-    else:
-        gen = ((key, key) for key in d)
-
+    gen = (key for key in d) if isinstance(d[0], tuple) else ((key, key) for key in d)
     for key, value in gen:
         index = math.floor((key-mn) / bucket_width)
         if key == mx:

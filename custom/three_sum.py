@@ -1,4 +1,4 @@
-import itertools
+import itertools, numpy as np
 
 
 def three_sum(s):
@@ -6,6 +6,8 @@ def three_sum(s):
     Creates a hash table so that pairs from the set
     can be checked against other elements in constant time.
     """
+    if not isinstance(s, set):
+        s = set(s)
     triples = set()
     for pair in itertools.combinations(s, 2):
         third = -sum(pair)
@@ -31,6 +33,9 @@ def three_sum_list(l):
         while (start < end):
             b = l[start]
             c = l[end]
+            if np.sign(a) == np.sign(b) == np.sign(c):
+                # optimized: avoid remaining all-positive/all-negative triples
+                return triples
             if (a+b+c == 0):
                 triples.add((a,b,c))
                 start += 1
@@ -49,4 +54,8 @@ if __name__ == '__main__':
 
     l = [-1, 0, 1, 2, 2, -1, -4]
     print(three_sum_list(l))
+
+    l = [i for i in range(100)]
+    print(three_sum_list(l))
+
 

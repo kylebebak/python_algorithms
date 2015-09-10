@@ -114,7 +114,14 @@ def permute(l):
     return perm_list
 
 
+def fib(N):
+    if not isinstance(N, int) or N <= 0:
+        raise TypeError("Only accepts positive integers.")
 
+    n0, n1 = 0, 1
+    for i in range(1, N):
+        n0, n1 = n1, n0+n1
+    return n1
 
 
 
