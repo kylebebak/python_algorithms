@@ -15,7 +15,8 @@ def flatten(a):
 
 def flatten_dict(d, prefix='', result={}):
     """
-    >>> flatten_dict({'a': 1, 'b': {'x': 2, 'y': 3, 'z': {'t': 5, 'u': 6}}, 'c': 4})
+    >>> import pprint
+    >>> pprint.pprint(flatten_dict({'a': 1, 'b': {'x': 2, 'y': 3, 'z': {'t': 5, 'u': 6}}, 'c': 4}))
     {'a': 1, 'b.x': 2, 'b.y': 3, 'b.z.t': 5, 'b.z.u': 6, 'c': 4}
     """
     for key, value in d.items():
@@ -32,10 +33,11 @@ def unflatten_dict(dictionary, separator='.'):
     to build up the result dict from each key-value pair of the input
     dictionary.
 
-    >>> unflatten_dict({'a': 1, 'b.x': 2, 'b.y': 3, 'b.z.t': 5, 'b.z.u': 6})
+    >>> import pprint
+    >>> pprint.pprint(unflatten_dict({'a': 1, 'b.x': 2, 'b.y': 3, 'b.z.t': 5, 'b.z.u': 6}))
     {'a': 1, 'b': {'x': 2, 'y': 3, 'z': {'t': 5, 'u': 6}}}
 
-    >>> unflatten_dict({'a': 1, 'b.x': 2, 'b.y': 3, 'c': 4})
+    >>> pprint.pprint(unflatten_dict({'a': 1, 'b.x': 2, 'b.y': 3, 'c': 4}))
     {'a': 1, 'b': {'x': 2, 'y': 3}, 'c': 4}
     """
     result = dict()
@@ -49,9 +51,6 @@ def unflatten_dict(dictionary, separator='.'):
             d = d[part]
         d[parts[-1]] = value
     return result
-
-
-list(map(lambda x: x*x, [1, 2, 3, 4, 5]))
 
 
 def tree_map(func, l, flat=False):
@@ -94,35 +93,7 @@ def tree_reverse(l, flat=False):
     return result
 
 
-def permute(l):
-    """
-    >>> permute([1, 2, 3])
-    [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
-    """
-    perm_list = []
-    if len(l) <= 1:
-        return l
-
-    for k in range(len(l)):
-        permutations = permute(l[:k] + l[(k + 1):])
-        for perm in permutations:
-            if not isinstance(perm, list):
-                perm_list.append([l[k]] + [perm])
-            else:
-                perm_list.append([l[k]] + perm)
-
-    return perm_list
-
-
-def fib(N):
-    if not isinstance(N, int) or N <= 0:
-        raise TypeError("Only accepts positive integers.")
-
-    n0, n1 = 0, 1
-    for i in range(1, N):
-        n0, n1 = n1, n0+n1
-    return n1
-
-
-
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
