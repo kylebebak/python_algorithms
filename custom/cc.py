@@ -1,7 +1,6 @@
 from collections import deque
 
 from custom.graph import UnweightedGraph
-# from .graph import UnweightedGraph
 
 class CC:
     """Runs DFS repeatedly on vertices of graph

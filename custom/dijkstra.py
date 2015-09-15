@@ -4,8 +4,7 @@ has a priority, and the priority of any element can be
 changed so that the element repositions itself in the heap.
 It therefore requires a heap-dictionary.
 """
-# from custom.heapdict import heapdict
-from .heapdict import heapdict
+from custom.heapdict import heapdict
 
 def dijkstra(gr, source):
     """Returns dict of (vertex -> dist) pairs and dict

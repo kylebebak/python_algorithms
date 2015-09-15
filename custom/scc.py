@@ -2,7 +2,6 @@ from collections import deque
 
 from custom.graph import UnweightedGraph
 from custom.dfo import DepthFirstOrder
-# from .graph import UnweightedGraph
 
 class SCC:
     """Runs Kosaraju-Sharir algorithm on graph

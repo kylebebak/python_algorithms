@@ -1,7 +1,6 @@
 from collections import deque
 
 from custom.graph import UnweightedGraph
-# from .graph import UnweightedGraph
 
 class Cliques:
     """Finds all maximal cliques in a graph. A clique

@@ -1,3 +1,12 @@
+"""
+https://pypi.python.org/pypi/HeapDict
+
+Author: Stutzbach Enterprises, LLC
+Home Page: http://stutzbachenterprises.com/
+License: BSD
+Package Index Owner: stutzbach
+"""
+
 import collections
 
 def doc(s):

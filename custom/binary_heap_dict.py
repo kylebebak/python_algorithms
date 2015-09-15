@@ -72,10 +72,7 @@ class PriorityQueueDict(BinaryHeapDict):
         return key, value
 
     def peek(self):
-        if self.N < 1:
-            return None, None
-        index = min(1, self.N)
-        return self.L[index], self.D[self.L[index]][0]
+        return (None, None) if self.N < 1 else (self.L[1], self.D[self.L[1]][0])
 
     def sorted_order(self):
         while self.N > 0:
@@ -92,6 +89,14 @@ class PriorityQueueDict(BinaryHeapDict):
         self.D[key][0] = new_val
         self.swim(index) if self.mx == (new_val > val) else self.sink(index)
 
+    def check_integrity(self):
+        """Checks that the dict and list backing the queue agree
+        on the indices for all keys."""
+        for index, key in enumerate(self.L):
+            if index > 0:
+                assert self.D[key][1] == index
+
+
 
 
 
@@ -105,9 +110,15 @@ if __name__ == '__main__':
         max_pq.insert(key, random.randrange(20))
 
     print(max_pq.D)
+    print(max_pq.peek())
+
+    max_pq.check_integrity()
     max_pq.set_priority('been', 13)
+    max_pq.check_integrity()
+
     sorted_list = []
     for e in max_pq.sorted_order():
         sorted_list.append(e)
     print(sorted_list)
+    max_pq.check_integrity()
 
