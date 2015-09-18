@@ -97,9 +97,6 @@ class PriorityQueueDict(BinaryHeapDict):
                 assert self.D[key][1] == index
 
 
-
-
-
 if __name__ == '__main__':
 
     import random

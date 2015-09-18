@@ -60,7 +60,6 @@ class PriorityQueue(BinaryHeap):
             yield self.remove_top()
 
 
-
 if __name__ == '__main__':
 
     import random

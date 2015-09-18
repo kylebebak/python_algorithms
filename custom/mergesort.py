@@ -1,17 +1,14 @@
 def mergesort(a):
-
     def merge(a, aux, lo, mid, hi):
         """
         Stably merge a[lo..mid] with a[mid+1..hi] using aux[lo..hi].
         """
-
         # copy to aux[]
         for k in range(lo, hi+1):
             aux[k] = a[k]
 
         # merge back to a[]
-        i = lo
-        j = mid+1
+        i, j = lo, mid+1
         for k in range(lo, hi+1):
             if i > mid:
                 a[k] = aux[j]
@@ -42,7 +39,6 @@ def mergesort(a):
                 merge(a, aux, lo, m, hi)
                 i += n+n
             n = n+n
-
 
     sort(a)
     return a

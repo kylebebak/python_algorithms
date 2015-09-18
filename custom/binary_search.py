@@ -17,7 +17,6 @@ def binary_search(l, e):
     return -1
 
 
-
 if __name__ == '__main__':
     l = [random.randrange(100) for i in range(100)]
     l = list(set(l))

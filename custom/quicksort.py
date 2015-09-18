@@ -2,7 +2,8 @@
 Quicksort can and should be done in place, so this is not the most
 efficient implementation, but it's very elegant and concise.
 """
-from custom.shuffle import shuffle
+from random import shuffle
+
 def quicksort(seq):
     shuffle(seq)
     return _quicksort(seq)
