@@ -1,13 +1,4 @@
-from custom.mixins import ComparableHashableMixin
-
-"""Similar to my other implementation of a weighted, undirected
-graph, but uses an edge abstraction to represent edges, instead
-of using a vertex abstraction which maintains a dict of
-adjacent vertices. This is useful for algorithms such as
-Kruskal's algorithm, which uses a priority queue to examine
-the edges in ascending order of weight. In this implementation,
-vertices are not named by nodes, but rather by integer indices.
-"""
+from .mixins import ComparableHashableMixin
 
 class Edge(ComparableHashableMixin):
     """Comparable, and hence sortable, edge data type for

@@ -8,7 +8,7 @@ class Cliques:
     permutation is connected in both directions. The
     algorithm works by starting with a vertex and
     recursively visiting its neighbors, adding a neighbor
-    to the clique is there is a two-way connection
+    to the clique if there is a two-way connection
     between the neighbor and all vertices currently in
     the clique."""
 

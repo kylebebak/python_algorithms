@@ -18,6 +18,8 @@ class UF(object):
         return self.root(p) == self.root(q)
 
     def union(self, p, q):
+        """Join p's subtree to q's subtree at their roots, so
+        that the elements in these subtrees are connected."""
         if p == q:
             return
         i = self.root(p)

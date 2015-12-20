@@ -1,4 +1,4 @@
-from custom.union_find import UF
+from .union_find import UF
 from heapq import heappush, heappop
 
 class KruskalMST:

@@ -22,7 +22,7 @@ def num_to_str(num):
             raise OverflowError('Number is too large.')
         pre_len += 1
         pre, rest = int(s_num[:pre_len]), s_num[pre_len:]
-        hundreds, tens, ones = pre//100, (pre%100)//10, (pre%10)
+        hundreds, tens, ones = pre//100, (pre%100)//10, pre%10
 
         str_rep = ''
         if hundreds:

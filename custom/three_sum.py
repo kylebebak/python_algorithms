@@ -51,11 +51,15 @@ def three_sum_list(l):
 if __name__ == '__main__':
     s = set([i for i in range(-100, 100)])
     print(three_sum(s))
+    print(len(three_sum(s)))
+    print()
 
     l = [-1, 0, 1, 2, 2, -1, -4]
     print(three_sum_list(l))
+    print()
 
-    l = [i for i in range(100)]
+    l = [i for i in range(-100,100)]
     print(three_sum_list(l))
+    print(len(three_sum(l)))
 
 

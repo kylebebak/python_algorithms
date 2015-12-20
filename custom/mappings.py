@@ -13,6 +13,19 @@ def flatten(a):
     return result
 
 
+def flatten_alternate(a, result=[]):
+    """
+    >>> flatten_alternate([ [1, 2, [3, 4] ], [5, 6], 7])
+    [1, 2, 3, 4, 5, 6, 7]
+    """
+    for x in a:
+        if isinstance(x, list):
+            flatten_alternate(x, result)
+        else:
+            result.append(x)
+    return result
+
+
 def flatten_dict(d, prefix='', result={}):
     """
     >>> import pprint
