@@ -1,5 +1,5 @@
 import string
-ALPHABET = string.ascii_uppercase + string.ascii_lowercase + \
+ALPHABET = string.ascii_lowercase + string.ascii_uppercase + \
            string.digits + '-_'
 ALPHABET_REVERSE = dict((c, i) for (i, c) in enumerate(ALPHABET))
 BASE = len(ALPHABET)
