@@ -14,3 +14,11 @@ I am working on tests and assets for these files. Unit tests are in the `tests` 
 #### Doc tests
 `python <module.py> -v`
 
+#### Python Path
+To ensure that Python can import the modules in this package, the parent directory of the package has to be in the `PYTHONPATH`. Instead of doing this in `.bash_profile` or another startup script, you can do it in the activate script of a __virtualenv__: `$HOME/.virtualenvs/{virtualenv}/bin/activate`.
+
+~~~sh
+unset PYTHONPATH
+PYTHONPATH="/Users/kylebebak/Dropbox/Code/Python/_modules"
+export PYTHONPATH
+~~~
