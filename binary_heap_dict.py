@@ -1,5 +1,6 @@
 class BinaryHeapDict(object):
     """docstring for BinaryHeapDict"""
+
     def __init__(self, mx=True):
         self.mx = mx
         self.L = [None]
@@ -20,16 +21,16 @@ class BinaryHeapDict(object):
     def swim(self, k):
         """Get key of each element further up the heap and access dict
         to compare values."""
-        while k > 1 and self.compare(k//2, k):
-            self.exch(k//2, k)
-            k = k//2
+        while k > 1 and self.compare(k // 2, k):
+            self.exch(k // 2, k)
+            k = k // 2
 
     def sink(self, k):
         """Get key of each element further down the heap and access dict
         to compare values."""
-        while 2*k <= self.N:
-            j = 2*k
-            if j < self.N and self.compare(j, j+1):
+        while 2 * k <= self.N:
+            j = 2 * k
+            if j < self.N and self.compare(j, j + 1):
                 j += 1
             if not self.compare(k, j):
                 break
@@ -46,6 +47,7 @@ class PriorityQueueDict(BinaryHeapDict):
     pairs in O(log n). The priority for any element can be set
     after it has been inserted into the queue, which makes this
     data structure suitable for implementing Dijkstra's algorithm."""
+
     def __init__(self, mx=True):
         super(PriorityQueueDict, self).__init__(mx)
 
@@ -97,12 +99,33 @@ class PriorityQueueDict(BinaryHeapDict):
                 assert self.D[key][1] == index
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     import random
 
     max_pq = PriorityQueueDict()
-    keys = ['a', 'all', 'been', 'blocking', 'call', 'currently', 'every', 'for', 'had', 'have', 'is', 'it', 'item', 'items', 'meaning', 'processed', 'received', 'resume', 'task_done', 'when']
+    keys = [
+        "a",
+        "all",
+        "been",
+        "blocking",
+        "call",
+        "currently",
+        "every",
+        "for",
+        "had",
+        "have",
+        "is",
+        "it",
+        "item",
+        "items",
+        "meaning",
+        "processed",
+        "received",
+        "resume",
+        "task_done",
+        "when",
+    ]
     for key in keys:
         max_pq.insert(key, random.randrange(20))
 
@@ -110,7 +133,7 @@ if __name__ == '__main__':
     print(max_pq.peek())
 
     max_pq.check_integrity()
-    max_pq.set_priority('been', 13)
+    max_pq.set_priority("been", 13)
     max_pq.check_integrity()
 
     sorted_list = []
@@ -118,4 +141,3 @@ if __name__ == '__main__':
         sorted_list.append(e)
     print(sorted_list)
     max_pq.check_integrity()
-

@@ -4,6 +4,7 @@ class Node(object):
         self.value = value
         self.next = [None] * self.R
 
+
 class RWT(object):
     def __init__(self):
         self.root = Node()
@@ -38,24 +39,23 @@ class RWT(object):
         if d == len(s) - 1:
             node.value = None
         else:
-            self._delete(s, d+1, prev, node)
+            self._delete(s, d + 1, prev, node)
         if len(set(node.next)) == 1:
             prev.next[ord(s[d])] = None
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     rwt = RWT()
-    rwt.put('sally', 5)
-    rwt.put('sells', 9)
-    rwt.put('sea', 3)
-    rwt.put('sitting', 4)
-    rwt.put('by', 1)
-    rwt.put('the', 2)
-    rwt.put('sea', 8)
-    rwt.put('shells', 7)
-    rwt.put('shore', 3)
-    rwt.put('she', 11)
+    rwt.put("sally", 5)
+    rwt.put("sells", 9)
+    rwt.put("sea", 3)
+    rwt.put("sitting", 4)
+    rwt.put("by", 1)
+    rwt.put("the", 2)
+    rwt.put("sea", 8)
+    rwt.put("shells", 7)
+    rwt.put("shore", 3)
+    rwt.put("she", 11)
 
     print(rwt.get("shells"))
     print(rwt.get("shore"))
@@ -78,11 +78,3 @@ if __name__ == '__main__':
     rwt.delete("shells")
     rwt.delete("shells")
     print(rwt.get("shells"))
-
-
-
-
-
-
-
-

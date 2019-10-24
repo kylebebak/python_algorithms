@@ -9,15 +9,15 @@ http://stackoverflow.com/users/64474/miles
 import string
 
 # base64url
-ALPHABET = string.ascii_uppercase + string.ascii_lowercase + \
-    string.digits + '-_'
+ALPHABET = string.ascii_uppercase + string.ascii_lowercase + string.digits + "-_"
 
 # standard geohash base 32
 # ALPHABET = string.digits + 'bcdefghjkmnpqrstuvwxyz'
 
 ALPHABET_REVERSE = dict((c, i) for (i, c) in enumerate(ALPHABET))
 BASE = len(ALPHABET)
-SIGN_CHARACTER = '$'
+SIGN_CHARACTER = "$"
+
 
 def to_urlsafe(n):
     """Converts integer to url-safe string."""
@@ -29,7 +29,8 @@ def to_urlsafe(n):
         s.append(ALPHABET[r])
         if n == 0:
             break
-    return ''.join(reversed(s))
+    return "".join(reversed(s))
+
 
 def from_urlsafe(s):
     """Converts base url-safe string to integer."""

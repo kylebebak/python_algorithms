@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def bfs(G, source):
     """Modifies vertices within graph G without returning
     anything."""
@@ -16,4 +17,3 @@ def bfs(G, source):
                 v.dist = u.dist + 1
                 v.prev = u
                 q.append(v)
-

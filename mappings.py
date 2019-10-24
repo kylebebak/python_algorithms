@@ -1,3 +1,6 @@
+# from https://anandology.com/python-practice-book/
+
+
 def flatten(a):
     """
     >>> flatten([ [1, 2, [3, 4] ], [5, 6], 7])
@@ -13,6 +16,16 @@ def flatten(a):
     return result
 
 
+def contains(l, v):
+    """
+    >>> contains([1,[2,3,4,[5,6],7,[8,9,[10,11]]]], 7)
+    True
+    >>> contains([1,[2,3,4,[5,6],7,[8,9,[10,11]]]], 12)
+    False
+    """
+    return v in flatten(l)
+
+
 def flatten_alternate(a, result=[]):
     """
     >>> flatten_alternate([ [1, 2, [3, 4] ], [5, 6], 7])
@@ -26,7 +39,7 @@ def flatten_alternate(a, result=[]):
     return result
 
 
-def flatten_dict(d, prefix='', result={}):
+def flatten_dict(d, prefix="", result={}):
     """
     >>> import pprint
     >>> pprint.pprint(flatten_dict({'a': 1, 'b': {'x': 2, 'y': 3, 'z': {'t': 5, 'u': 6}}, 'c': 4}))
@@ -34,13 +47,13 @@ def flatten_dict(d, prefix='', result={}):
     """
     for key, value in d.items():
         if isinstance(value, dict):
-            flatten_dict(value, prefix + key + '.' , result)
+            flatten_dict(value, prefix + key + ".", result)
         else:
             result[prefix + key] = value
     return result
 
 
-def unflatten_dict(dictionary, separator='.'):
+def unflatten_dict(dictionary, separator="."):
     """
     Uses iteration rather than recursion, and makes use of pointers
     to build up the result dict from each key-value pair of the input
@@ -108,5 +121,5 @@ def tree_reverse(l, flat=False):
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod()
 
+    doctest.testmod()

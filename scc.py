@@ -3,6 +3,7 @@ from collections import deque
 from custom.graph import UnweightedGraph
 from custom.dfo import DepthFirstOrder
 
+
 class SCC:
     """Runs Kosaraju-Sharir algorithm on graph
     to compute strongly connected components (sets
@@ -46,8 +47,7 @@ class SCC:
         return self.id(node_a) == self.id(node_b)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     g = UnweightedGraph()
     g.add_vertex(0)
     g.add_vertex(1)
@@ -64,38 +64,32 @@ if __name__ == '__main__':
     g.add_vertex(12)
 
     # 5 strongly connected components
-    g.add_edge(0,1)
-    g.add_edge(0,5)
-    g.add_edge(2,0)
-    g.add_edge(2,3)
-    g.add_edge(3,2)
-    g.add_edge(3,5)
-    g.add_edge(4,2)
-    g.add_edge(4,3)
-    g.add_edge(5,4)
+    g.add_edge(0, 1)
+    g.add_edge(0, 5)
+    g.add_edge(2, 0)
+    g.add_edge(2, 3)
+    g.add_edge(3, 2)
+    g.add_edge(3, 5)
+    g.add_edge(4, 2)
+    g.add_edge(4, 3)
+    g.add_edge(5, 4)
 
-    g.add_edge(6,0)
-    g.add_edge(6,4)
-    g.add_edge(6,8)
-    g.add_edge(6,9)
-    g.add_edge(8,6)
+    g.add_edge(6, 0)
+    g.add_edge(6, 4)
+    g.add_edge(6, 8)
+    g.add_edge(6, 9)
+    g.add_edge(8, 6)
 
-    g.add_edge(7,6)
-    g.add_edge(7,9)
+    g.add_edge(7, 6)
+    g.add_edge(7, 9)
 
-    g.add_edge(9,10)
-    g.add_edge(9,11)
-    g.add_edge(10,12)
-    g.add_edge(11,4)
-    g.add_edge(11,12)
-    g.add_edge(12,9)
+    g.add_edge(9, 10)
+    g.add_edge(9, 11)
+    g.add_edge(10, 12)
+    g.add_edge(11, 4)
+    g.add_edge(11, 12)
+    g.add_edge(12, 9)
 
     scc = SCC(g)
     for node in g.get_nodes():
         print("node: {}, id: {}".format(node, scc.id(node)))
-
-
-
-
-
-

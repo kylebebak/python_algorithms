@@ -4,6 +4,7 @@ from a cleaner implementation by assigning one extra spot in the
 count array.
 """
 
+
 def radix_i0(a):
     R = max(a) + 1
     count = [0] * R
@@ -30,10 +31,10 @@ def radix(a, R=None):
     count = [0] * R
 
     for key in a:
-        count[key+1] += 1
+        count[key + 1] += 1
 
-    for i in range(R-1):
-        count[i+1] += count[i]
+    for i in range(R - 1):
+        count[i + 1] += count[i]
 
     aux = [None] * len(a)
     for key in a:
@@ -51,7 +52,7 @@ def lsd_radix(a):
     """
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import random
 
     l = [random.randrange(100) for i in range(1000)]
@@ -59,6 +60,3 @@ if __name__ == '__main__':
 
     l = [random.randrange(100) for i in range(1000)]
     print(radix(l))
-
-
-

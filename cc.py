@@ -2,6 +2,7 @@ from collections import deque
 
 from custom.graph import UnweightedGraph
 
+
 class CC:
     """Runs DFS repeatedly on vertices of graph
     until all connected components have been found."""
@@ -39,8 +40,7 @@ class CC:
         return self.id(node_a) == self.id(node_b)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     g = UnweightedGraph()
     g.add_vertex(1)
     g.add_vertex(2)
@@ -50,12 +50,11 @@ if __name__ == '__main__':
     g.add_vertex(6)
     g.add_vertex(7)
 
-    g.add_edge(1,2, both=True)
-    g.add_edge(2,4, both=True)
-    g.add_edge(2,6, both=True)
+    g.add_edge(1, 2, both=True)
+    g.add_edge(2, 4, both=True)
+    g.add_edge(2, 6, both=True)
 
-    g.add_edge(3,5, both=True)
-
+    g.add_edge(3, 5, both=True)
 
     cc = CC(g)
     for node in g.get_nodes():
@@ -63,9 +62,3 @@ if __name__ == '__main__':
 
     for node in g.get_nodes():
         print("node 1 is connected to node {}: {}".format(node, cc.connected(1, node)))
-
-
-
-
-
-

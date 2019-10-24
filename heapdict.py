@@ -9,28 +9,32 @@ Package Index Owner: stutzbach
 
 import collections
 
+
 def doc(s):
-    if hasattr(s, '__call__'):
+    if hasattr(s, "__call__"):
         s = s.__doc__
+
     def f(g):
         g.__doc__ = s
         return g
+
     return f
+
 
 class heapdict(collections.MutableMapping):
     __marker = object()
 
     @staticmethod
     def _parent(i):
-        return ((i - 1) >> 1)
+        return (i - 1) >> 1
 
     @staticmethod
     def _left(i):
-        return ((i << 1) + 1)
+        return (i << 1) + 1
 
     @staticmethod
     def _right(i):
-        return ((i+1) << 1)
+        return (i + 1) << 1
 
     def __init__(self, *args, **kw):
         self.heap = []
@@ -49,7 +53,7 @@ class heapdict(collections.MutableMapping):
         wrapper = [value, key, len(self)]
         self.d[key] = wrapper
         self.heap.append(wrapper)
-        self._decrease_key(len(self.heap)-1)
+        self._decrease_key(len(self.heap) - 1)
 
     def _min_heapify(self, i):
         l = self._left(i)
@@ -69,7 +73,8 @@ class heapdict(collections.MutableMapping):
     def _decrease_key(self, i):
         while i:
             parent = self._parent(i)
-            if self.heap[parent][0] < self.heap[i][0]: break
+            if self.heap[parent][0] < self.heap[i][0]:
+                break
             self._swap(i, parent)
             i = parent
 
@@ -115,5 +120,6 @@ class heapdict(collections.MutableMapping):
         """D.peekitem() -> (k, v), return the (key, value) pair with lowest value;\n but raise KeyError if D is empty."""
         return (self.heap[0][1], self.heap[0][0])
 
+
 del doc
-__all__ = ['heapdict']
+__all__ = ["heapdict"]

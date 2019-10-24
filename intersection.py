@@ -1,5 +1,6 @@
 import random
 
+
 def intersection(a, b):
     """Returns index at which element e is found in
     list l. List l must be sorted, or else binary search
@@ -14,8 +15,7 @@ def intersection(a, b):
     return intersect
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [random.randrange(100) for i in range(25)]
     b = [random.randrange(100) for i in range(25)]
     print(sorted(a))

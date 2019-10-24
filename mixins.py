@@ -8,16 +8,22 @@ class ComparableMixin:
     to be compared by reference, the `is` operator must be used,
     i.e. a is b. Objects implementing rich comparison can be sorted!
     """
+
     def __eq__(self, other):
-        return not self<other and not other<self
+        return not self < other and not other < self
+
     def __ne__(self, other):
-        return self<other or other<self
+        return self < other or other < self
+
     def __gt__(self, other):
-        return other<self
+        return other < self
+
     def __ge__(self, other):
-        return not self<other
+        return not self < other
+
     def __le__(self, other):
-        return not other<self
+        return not other < self
+
 
 class ComparableHashableMixin:
     """
@@ -26,9 +32,12 @@ class ComparableHashableMixin:
     defined, which ensures that instances of a class that inherits
     from this mixin are not only sortable, but also hashable!
     """
+
     def __gt__(self, other):
-        return other<self
+        return other < self
+
     def __ge__(self, other):
-        return not self<other
+        return not self < other
+
     def __le__(self, other):
-        return not other<self
+        return not other < self

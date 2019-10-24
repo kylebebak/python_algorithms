@@ -4,15 +4,18 @@ efficient implementation, but it's very elegant and concise.
 """
 from random import shuffle
 
+
 def quicksort(seq):
     shuffle(seq)
     return _quicksort(seq)
+
 
 def _quicksort(seq):
     if len(seq) <= 1:
         return seq
     lo, pi, hi = partition(seq)
     return _quicksort(lo) + [pi] + _quicksort(hi)
+
 
 def partition(seq):
     pi, seq = seq[0], seq[1:]
@@ -21,7 +24,7 @@ def partition(seq):
     return lo, pi, hi
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import random
 
     l = [random.randrange(100) for i in range(100)]

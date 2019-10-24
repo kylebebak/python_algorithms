@@ -4,6 +4,7 @@ class Node:
         self.nxt = nxt
         self.prv = prv
 
+
 class Stack:
     def __init__(self):
         self.head = None
@@ -19,4 +20,3 @@ class Stack:
         self.head = self.head.nxt
         self.size -= 1
         return value
-

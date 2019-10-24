@@ -4,6 +4,7 @@ class Node:
         self.nxt = nxt
         self.prv = prv
 
+
 class Deque:
     def __init__(self):
         self.head = None
@@ -69,8 +70,7 @@ class Deque:
             node = nxt
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     d = Deque()
     d.append(6)
@@ -86,7 +86,6 @@ if __name__ == '__main__':
     print(d.pop_left())
     print(d.pop_left())
     print(d.pop_left())
-
 
     d.append(6)
     d.append(8)

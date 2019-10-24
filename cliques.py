@@ -2,6 +2,7 @@ from collections import deque
 
 from custom.graph import UnweightedGraph
 
+
 class Cliques:
     """Finds all maximal cliques in a graph. A clique
     is a group of vertices for which every pairwise
@@ -35,7 +36,10 @@ class Cliques:
                     for member in clique:
                         # warning: depending on the implementation of get_neighbors, the following
                         # line may require comparisons linear in the number of neighbors
-                        if member not in v.get_neighbors() or v not in member.get_neighbors():
+                        if (
+                            member not in v.get_neighbors()
+                            or v not in member.get_neighbors()
+                        ):
                             break
                     else:
                         clique.add(v)
@@ -49,8 +53,7 @@ class Cliques:
         return self.cliques
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     g = UnweightedGraph()
     g.add_vertex(1)
     g.add_vertex(2)
@@ -64,45 +67,42 @@ if __name__ == '__main__':
     g.add_vertex(10)
     g.add_vertex(11)
 
-
     # 4 cliques in total, of size, 3, 2, 4, and 3
-    g.add_edge(1,2)
-    g.add_edge(2,1)
-    g.add_edge(1,3)
-    g.add_edge(3,1)
-    g.add_edge(2,3)
-    g.add_edge(3,2)
+    g.add_edge(1, 2)
+    g.add_edge(2, 1)
+    g.add_edge(1, 3)
+    g.add_edge(3, 1)
+    g.add_edge(2, 3)
+    g.add_edge(3, 2)
 
-    g.add_edge(3,4)
-    g.add_edge(4,3)
+    g.add_edge(3, 4)
+    g.add_edge(4, 3)
 
-    g.add_edge(4,5)
+    g.add_edge(4, 5)
 
-    g.add_edge(5,6)
-    g.add_edge(5,7)
-    g.add_edge(5,8)
-    g.add_edge(6,5)
-    g.add_edge(6,7)
-    g.add_edge(6,8)
-    g.add_edge(7,5)
-    g.add_edge(7,6)
-    g.add_edge(7,8)
-    g.add_edge(8,5)
-    g.add_edge(8,6)
-    g.add_edge(8,7)
+    g.add_edge(5, 6)
+    g.add_edge(5, 7)
+    g.add_edge(5, 8)
+    g.add_edge(6, 5)
+    g.add_edge(6, 7)
+    g.add_edge(6, 8)
+    g.add_edge(7, 5)
+    g.add_edge(7, 6)
+    g.add_edge(7, 8)
+    g.add_edge(8, 5)
+    g.add_edge(8, 6)
+    g.add_edge(8, 7)
 
-    g.add_edge(7,8)
-    g.add_edge(7,9)
-    g.add_edge(8,7)
-    g.add_edge(8,9)
-    g.add_edge(9,7)
-    g.add_edge(9,8)
+    g.add_edge(7, 8)
+    g.add_edge(7, 9)
+    g.add_edge(8, 7)
+    g.add_edge(8, 9)
+    g.add_edge(9, 7)
+    g.add_edge(9, 8)
 
-    g.add_edge(9,10)
+    g.add_edge(9, 10)
 
-    g.add_edge(11,10)
-
-
+    g.add_edge(11, 10)
 
     cl = Cliques(g)
     print(cl.count())

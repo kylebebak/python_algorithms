@@ -3,6 +3,7 @@ class Vertex:
     key-value pairs of neighbors to which it is connected.
     This avoids needing an extra data type, EDGE, to represent
     connections between vertices."""
+
     def __init__(self, node):
         self.node = node
         self.adjacent = {}
@@ -27,12 +28,14 @@ class Vertex:
     def get_weight(self, neighbor):
         return self.adjacent[neighbor]
 
+
 class UnweightedVertex(Vertex):
     """A vertex that maintains a list of vertices to which it is connected,
     instead of a dict with vertices and their corresponding weights. The
     implementation can also use a set of vertices instead of a list, which
     removes the ability to have parallel edges, but which speeds up queries
     for whether vertex_a is a neighbor of vertex_b."""
+
     def __init__(self, node):
         self.node = node
         self.adjacent = []
@@ -44,13 +47,13 @@ class UnweightedVertex(Vertex):
         return self.adjacent
 
 
-
 class Graph:
     """A collection of vertices connected by edges
     to their neighbors. The vertices are maintained
     in a dict of (node -> vertex) key-value pairs."""
+
     def __init__(self, vertices=None):
-        self.vertices = ({} if vertices is None else vertices)
+        self.vertices = {} if vertices is None else vertices
 
     def __iter__(self):
         """Returns all vertex instances in vertices dict."""
@@ -87,8 +90,10 @@ class Graph:
         if both:
             self.vertices[to].add_neighbor(self.vertices[frm], cost)
 
+
 class UnweightedGraph(Graph):
     """UnweightedVertex instances are stored instead of Vertex instances."""
+
     def add_vertex(self, node):
         new_vertex = UnweightedVertex(node)
         self.vertices[node] = new_vertex
@@ -118,7 +123,7 @@ class UnweightedGraph(Graph):
         return UnweightedGraph(reversed_vertices)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     g = UnweightedGraph()
     g.add_vertex(1)
@@ -126,7 +131,6 @@ if __name__ == '__main__':
     g.add_vertex(3)
     g.add_vertex(4)
     g.add_vertex(5)
-
 
     g.add_edge(1, 2)
     g.add_edge(1, 3)
@@ -145,8 +149,3 @@ if __name__ == '__main__':
     rg = g.reverse()
     for v in rg:
         v.print()
-
-
-
-
-

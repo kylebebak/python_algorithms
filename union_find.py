@@ -2,6 +2,7 @@ class UF(object):
     """Weighted union find with path compression. Find operations are
     effectively constant time because the height of the tree grows as
     order log * N, i.e. < 5 for any reasonable N."""
+
     def __init__(self, N):
         self.id = [i for i in range(N)]
         self.sz = [1 for i in range(N)]

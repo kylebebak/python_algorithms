@@ -59,7 +59,7 @@ class BST:
     def _print(self, node):
         if node is not None:
             self._print(node.left)
-            print(str(node.value) + ' ')
+            print(str(node.value) + " ")
             self._print(node.right)
 
     def basic_dfs(self):
@@ -75,10 +75,7 @@ class BST:
                 yield node_value
 
 
-
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     import bst
     import random
 
@@ -89,9 +86,3 @@ if __name__ == '__main__':
 
     for e in t.basic_dfs():
         print(e)
-
-
-
-
-
-

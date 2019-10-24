@@ -1,15 +1,17 @@
 from .mixins import ComparableHashableMixin
 
+
 class Edge(ComparableHashableMixin):
     """Comparable, and hence sortable, edge data type for
     connecting a pair of vertices in a graph."""
+
     def __init__(self, v, w, weight):
         self.v = v
         self.w = w
         self.weight = weight
 
     def __repr__(self):
-        return '{0} -> {1}, weight: {2}'.format(self.v, self.w, self._weight)
+        return "{0} -> {1}, weight: {2}".format(self.v, self.w, self._weight)
 
     def either(self):
         return self.v
@@ -30,6 +32,7 @@ class EdgeWeightedGraph:
     permitted. Vertices are represented by an indexed list. Each element
     in the vertex list is a set of edges pointing to adjacent vertices.
     """
+
     def __init__(self, V):
         self.V = V
         self._adj = [set() for i in range(self.V)]
@@ -57,8 +60,7 @@ class EdgeWeightedGraph:
         Assumes Edge type has defined suitable __repr__()."""
         for i, v in enumerate(self._adj):
             if v:
-                print('vertex {0}'.format(i))
+                print("vertex {0}".format(i))
                 for e in v:
                     print(e)
                 print()
-

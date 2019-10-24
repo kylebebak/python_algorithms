@@ -21,10 +21,11 @@ def fib(N):
 
     n0, n1 = 0, 1
     for i in range(1, N):
-        n0, n1 = n1, n0+n1
+        n0, n1 = n1, n0 + n1
     return n1
 
 
 if __name__ == "__main__":
     import doctest
+
     doctest.testmod()

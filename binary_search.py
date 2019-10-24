@@ -1,5 +1,6 @@
 import random
 
+
 def binary_search(l, e):
     """Returns index at which element e is found in
     list l. List l must be sorted, or else binary search
@@ -11,17 +12,17 @@ def binary_search(l, e):
         if l[mid] == e:
             return mid
         elif l[mid] > e:
-            upper = mid-1
+            upper = mid - 1
         else:
-            lower = mid+1
+            lower = mid + 1
     return -1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     l = [random.randrange(100) for i in range(100)]
     l = list(set(l))
     l.sort()
 
     print(l)
     for e in range(100):
-        print('el: {0}, index: {1}'.format(e, binary_search(l, e)))
+        print("el: {0}, index: {1}".format(e, binary_search(l, e)))

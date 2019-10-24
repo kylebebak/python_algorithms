@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def dfs(G, source):
     """Modifies vertices within graph G without returning
     anything."""
@@ -16,4 +17,3 @@ def dfs(G, source):
                 v.marked = True
                 v.prev = u
                 q.append(v)
-

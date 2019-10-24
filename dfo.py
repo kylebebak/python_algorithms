@@ -1,5 +1,6 @@
 from custom.graph import UnweightedGraph
 
+
 class DepthFirstOrder:
     """Runs DFS on graph in order to return
     reverse DFS postorder of graph, useful
@@ -7,6 +8,7 @@ class DepthFirstOrder:
     in the graph. DFS is implemented recursively
     instead of using a stack.
     """
+
     def __init__(self, G):
         self.G = G
         self.post = []
@@ -27,8 +29,7 @@ class DepthFirstOrder:
         return iter(reversed(self.post))
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     g = UnweightedGraph()
     g.add_vertex(1)
     g.add_vertex(2)

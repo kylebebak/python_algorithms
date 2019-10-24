@@ -4,12 +4,12 @@ def mergesort(a):
         Stably merge a[lo..mid] with a[mid+1..hi] using aux[lo..hi].
         """
         # copy to aux[]
-        for k in range(lo, hi+1):
+        for k in range(lo, hi + 1):
             aux[k] = a[k]
 
         # merge back to a[]
-        i, j = lo, mid+1
-        for k in range(lo, hi+1):
+        i, j = lo, mid + 1
+        for k in range(lo, hi + 1):
             if i > mid:
                 a[k] = aux[j]
                 j += 1
@@ -32,18 +32,18 @@ def mergesort(a):
         n = 1
         while n < N:
             i = 0
-            while i < N-n:
+            while i < N - n:
                 lo = i
                 m = i + n - 1
-                hi = min(i+n+n-1, N-1)
+                hi = min(i + n + n - 1, N - 1)
                 merge(a, aux, lo, m, hi)
-                i += n+n
-            n = n+n
+                i += n + n
+            n = n + n
 
     sort(a)
     return a
 
 
-if __name__ == '__main__':
-    a = mergesort([4,1,3,2])
+if __name__ == "__main__":
+    a = mergesort([4, 1, 3, 2])
     print(a)

@@ -6,6 +6,7 @@ It therefore requires a heap-dictionary.
 """
 from custom.heapdict import heapdict
 
+
 def dijkstra(gr, source):
     """Returns dict of (vertex -> dist) pairs and dict
     of (vertex -> previous_vertex) pairs."""
@@ -30,6 +31,4 @@ def dijkstra(gr, source):
                 prev[v] = u
                 q[v] = alt
 
-    return {'dist': dist, 'prev': prev}
-
-
+    return {"dist": dist, "prev": prev}
